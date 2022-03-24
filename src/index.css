@@ -31,6 +31,7 @@ form {
   width: 50%;
   height: 80px;
 }
+
 form > input:nth-child(1) {
   position: absolute;
   width: 80%;
@@ -63,4 +64,30 @@ li {
 
 .non-done::after {
   content: "❌";
+}
+
+@media (max-width: 1600px) {
+  form {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1000px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+  }
+
+  form > input:nth-child(1) {
+    height: 50%;
+    width: 100%;
+    position: relative;
+  }
+
+  form > input:nth-child(2) {
+    position: relative;
+    width: 100%;
+    height: 50%;
+  }
 }
