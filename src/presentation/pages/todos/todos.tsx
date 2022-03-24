@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { TodoModel } from "domain/models/todo-model";
 import { GetTodos } from "domain/usecases/get-todos/get-todos";
 import { SaveTodo } from "domain/usecases/save-todo/save-todo";
