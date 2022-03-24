@@ -1,13 +1,66 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  font-family: cursive;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10% 10% 0 10%;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+main > span {
+  color: #ff0000;
+}
+
+form {
+  position: relative;
+  width: 50%;
+  height: 80px;
+}
+form > input:nth-child(1) {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  font-size: x-large;
+  box-sizing: border-box;
+}
+form > input:nth-child(2) {
+  position: absolute;
+  right: 0;
+
+  width: 20%;
+  height: 100%;
+
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+}
+
+li {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.done::after {
+  content: "✅";
+}
+
+.non-done::after {
+  content: "❌";
 }
