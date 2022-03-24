@@ -13,7 +13,6 @@ export const dispatch = (data: IAction) => {
     if (externalDispatch) {
       externalDispatch(data);
     } else {
-      console.log(data);
       internalDispatch(data);
     }
   };
