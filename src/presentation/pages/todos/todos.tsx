@@ -27,19 +27,18 @@ const Todos: FC<TodoParams> = ({
 
   const [todos, setTodos] = useState<TodoModel[]>([]);
 
+  const getData = async () => {
+    const result = await loadTodo.get();
+    setTodos(result);
+  };
+
   useEffect(() => {
-    const getData = async () => {
-      const result = await loadTodo.get();
-      console.log(result);
-      setTodos(result);
-    };
     getData();
   }, [loadTodo]);
 
   const submitForm = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
-    console.log("save");
     event.preventDefault();
     try {
       if (state.taskError || state.isLoading) {
@@ -60,12 +59,8 @@ const Todos: FC<TodoParams> = ({
         task: "",
       });
 
-      const result = await loadTodo.get();
-      console.log(result);
-      setTodos(result);
-      console.log("end", state);
+      getData();
     } catch (error: any) {
-      console.log(error);
       setState({
         ...state,
         isLoading: false,
@@ -85,17 +80,13 @@ const Todos: FC<TodoParams> = ({
   const toggleItem = async (id: string) => {
     toggleTodo.change({ id });
 
-    const result = await loadTodo.get();
-    console.log(result);
-    setTodos(result);
+    getData();
   };
 
   const clearFinished = async () => {
     await clearTodo.clear();
 
-    const result = await loadTodo.get();
-    console.log(result);
-    setTodos(result);
+    getData();
   };
 
   const clearAll = async () => {};
